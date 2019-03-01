@@ -61,7 +61,8 @@
         If the caption data is user submitted or from some other untrusted source, then set this to true
         to prevent xss and other injection attacks.
          */
-        sanitizeTitle: false
+        sanitizeTitle: false,
+        roundCorner : 0
     };
 
     Lightbox.prototype.option = function(options) {
@@ -125,11 +126,11 @@
         };
 
         // DEBUT Maintenance Abdelhafid ENNES 1 mars 2019
-        this.$outerContainer.css('border-radius',40);
-        this.$container.css('border-radius',40);
-        this.$image.css('border-radius',40);
+        this.$outerContainer.css('border-radius',this.options.roundCorner);
+        this.$container.css('border-radius',this.options.roundCorner);
+        this.$image.css('border-radius',this.options.roundCorner);
         // FIN Maintenance Abdelhafid ENNES 1 mars 2019
-        
+
         // Attach event handlers to the newly minted DOM elements
         this.$overlay.hide().on('click', function() {
             self.end();
